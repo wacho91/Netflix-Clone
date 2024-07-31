@@ -1,7 +1,7 @@
 import { User } from "../models/userModels.js";
 import bcryptjs from "bcryptjs";
-import { generateToken } from "../utils/generateToken.js";
-
+import { generateToken } from "../utils/generateToken.js"
+;
 
 export async function signup(req, res) {
     try {
@@ -99,8 +99,8 @@ export async function login(req, res) {
 
 export async function logout(req, res) {
     try {
-        res.cookie("jwt-netflix");
-        res.status(200).json({success: true, message: "Logged out successfully"})
+        res.clearCookie("jwt-netflix");
+		res.status(200).json({ success: true, message: "Logged out successfully" });
     } catch (error) {
         console.log("Error in logout controller", error.message);
         res.status(500).json({success: false, message: "Internal server error"})
