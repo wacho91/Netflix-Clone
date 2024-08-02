@@ -61,6 +61,17 @@ const AuthScreen = () => {
           </div>
         </div>
       </div>
+
+      {/*Separator*/}
+      <div className="h-2 w-full bg-[#232323]" aria-hidden='true'></div>
+
+      {/* 2nd Section */}
+      <div className="py-10 bg-black text-white">
+        <div className="flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col px-4 md:px-2">
+          {/*Left side*/}
+          {/*Right side*/}
+        </div>
+      </div>
     </div>
   )
 }
