@@ -1,12 +1,17 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 
 
 const AuthScreen = () => {
 
     const [email, setEmail] = useState("");
-    // const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+
+    const handleFormSubmit = (e) => {
+      e.preventDefault();
+      navigate("/signup?email=" + email);
+    }
 
   return (
     <div className="hero-bg relative">
@@ -21,19 +26,19 @@ const AuthScreen = () => {
         <h1 className="text-4xl md:text-6xl font-bold mb-4">Unlimited movies, TV shows, and more</h1>
         <p className="text-lg mb-4">Watch anywhere. Cancel anytime.</p>
         <p className="mb">Ready to watch? Enter your email to create or restart your membership</p>
-        <form className="flex flex-col md:flex-row gap-4 w-1/2">
-            <input 
-              type="email" 
-              className="p-2 rounded flex-1 bg-black/80 border border-gray-700" 
-              placeholder="Email address" 
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+        <form className="flex flex-col md:flex-row gap-4 w-1/2" onSubmit={handleFormSubmit}>
+          <input 
+            type="email" 
+            className="p-2 rounded flex-1 bg-black/80 border border-gray-700" 
+            placeholder="Email address" 
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-            <button className="bg-red-600 text-2xl lg:text-2xl px-2 lg:px-6 py-1 md:py-2 rounded flex justify-center items-center">
-                Get Started
-                <ChevronRight className="size-8 md:size-10" />
-            </button>
+          <button className="bg-red-600 text-2xl lg:text-2xl px-2 lg:px-6 py-1 md:py-2 rounded flex justify-center items-center">
+            Get Started
+            <ChevronRight className="size-8 md:size-10" />
+          </button>
         </form>
       </div>
 
